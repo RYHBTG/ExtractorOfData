@@ -15,7 +15,6 @@ def extract_book_urls(playwright: Playwright) -> list:
     for page_num in range(1, 51):
         current_listing_url = f"http://books.toscrape.com/catalogue/page-{page_num}.html"
         page.goto(current_listing_url, wait_until="domcontentloaded")
-        page.wait_for_timeout(300)
         # Encontra todos os elementos de produto na página atual
         products = page.query_selector_all('li.col-xs-6.col-sm-4.col-md-3.col-lg-3')
         if not products:

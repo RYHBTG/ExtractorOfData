@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 from GetUrls import extract_book_urls
 from ExtractData import extract_book_data
-from WriteCSV import write_to_csv
+from WriteCSVtoEXCEL import write_to_csv
 def run(playwright):
     """
     Main execution line, it requires no input besides the function playwright, which it is used
@@ -23,7 +23,7 @@ def run(playwright):
         except Exception as e:
             print(f"Erro ao extrair dados de {url}: {e}")
     # Salvar os dados em um arquivo CSV
-    write_to_csv(books_data, 'books_data.csv')
+    write_to_csv(books_data, 'livrodedados.csv','converted-csv.xlsx')
     print("\n--- Extração de dados de todos os livros concluída. ---")
     # Fechar o contexto e o navegador
     context.close()

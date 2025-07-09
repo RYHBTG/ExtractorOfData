@@ -9,8 +9,6 @@ def extract_book_data(page: Page, url: str) -> dict:
     :return: Dicionário com os dados do livro.
     """
     page.goto(url, wait_until="domcontentloaded")
-    page.wait_for_timeout(300)  # Aguardar o carregamento da página
-
     # Extração de dados
     title = page.locator('.product_main h1').text_content().strip()
     price = page.locator('.product_main .price_color').text_content().strip()
@@ -25,24 +23,13 @@ def extract_book_data(page: Page, url: str) -> dict:
 
     upc = page.locator('table.table-striped tr:has(th:text-is("UPC")) > td').text_content().strip()
     product_type = page.locator('table.table-striped tr:has(th:text-is("Product Type")) > td').text_content().strip()
-    price_excl_tax = page.locator(
-        'table.table-striped tr:has(th:text-is("Price (excl. tax)")) > td').text_content().strip()
-    price_incl_tax = page.locator(
-        'table.table-striped tr:has(th:text-is("Price (incl. tax)")) > td').text_content().strip()
+    price_excl_tax = page.locator('table.table-striped tr:has(th:text-is("Price (excl. tax)")) > td').text_content().strip()
+    price_incl_tax = page.locator('table.table-striped tr:has(th:text-is("Price (incl. tax)")) > td').text_content().strip()
     tax = page.locator('table.table-striped tr:has(th:text-is("Tax")) > td').text_content().strip()
     availability = page.locator('table.table-striped tr:has(th:text-is("Availability")) > td').text_content().strip()
-    number_of_reviews = page.locator(
-        'table.table-striped tr:has(th:text-is("Number of reviews")) > td').text_content().strip()
+    number_of_reviews = page.locator('table.table-striped tr:has(th:text-is("Number of reviews")) > td').text_content().strip()
 
     return {
-        "Título": title,
-        "Preço": price,
-        "Avaliação": found_rating,
-        "UPC": upc,
-        "Tipo de Produto": product_type,
-        "Preço (excl. tax)": price_excl_tax,
-        "Preço (incl. tax)": price_incl_tax,
-        "Taxa": tax,
-        "Disponibilidade": availability,
-        "Número de Avaliações": number_of_reviews
+        "Título": title,"Preço": price,"Avaliação": found_rating,"UPC": upc,"Tipo de Produto": product_type,"Preço (excl. tax)": price_excl_tax,
+        "Preço (incl. tax)": price_incl_tax,"Taxa": tax,"Disponibilidade": availability,"Número de Avaliações": number_of_reviews
     }
