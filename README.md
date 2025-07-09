@@ -23,8 +23,9 @@ Você pode instalar o Playwright usando o seguinte comando:
 
 ```bash
 pip install playwright
+pip install pandas openpyxl
 ```
-Após a instalação, você também precisará instalar os navegadores suportados:
+Após a instalação, você também precisará instalar os navegadores suportados:  
 ```bash
 playwright install
 ```
@@ -33,6 +34,10 @@ Clone este repositório para sua máquina local:
 ```bash
 git clone https://github.com/seu_usuario/seu_repositorio.git
 cd seu_repositorio
+```
+Para visualizar o que busca extrair ou realizar basta utilizar o código abaixo, retire os () e também substitua o texto de dentro:
+```bash
+playwright codegen (link-do-seu-site.com)
 ```
 Execute o script main.py:
 ```bash
