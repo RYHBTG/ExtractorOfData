@@ -59,7 +59,7 @@ Após a execução, um arquivo chamado books_data.csv será gerado no diretório
 
 ### Bibliotecas utilizadas para desenvolvimento:
 ```bash
-import csv // Desenvolvimento e exportação para arquivos csv
-from playwright.sync_api import Playwright, sync_playwright, expect // Funções de playwright
-from urllib.parse import urljoin // Melhor manipulação de url's, para tratamento, requisições, etc.
+import csv // 'Desenvolvimento e exportação para arquivos csv'
+from playwright.sync_api import Playwright, sync_playwright, expect // 'Funções de playwright'
+from urllib.parse import urljoin // 'Melhor manipulação de urls, para tratamento, requisições, etc.'
 ```
